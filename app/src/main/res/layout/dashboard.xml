@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECB059">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#FFDE59">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bengkelsejak2020">
+        </ImageView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginRight="200dp"
+        android:background="@drawable/radius_box">
+
+        <Button
+            android:id="@+id/btnadd"
+            style="@style/DashboardButton"
+            android:layout_width="139dp"
+            android:layout_height="145dp"
+            android:drawableTop="@drawable/mapsaddnew"
+            android:text="add new"
+            android:textAlignment="gravity"
+            android:textColor="#070000"
+            android:textSize="15dp"
+            android:textStyle="bold"></Button>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/radius_box">
+        <Button
+            android:id="@+id/btnlist"
+            style="@style/DashboardButton"
+            android:layout_width="139dp"
+            android:layout_height="145dp"
+            android:drawableTop="@drawable/mapslist"
+            android:text="List"
+            android:textAlignment="gravity"
+            android:textColor="#070000"
+            android:textSize="15dp"
+            android:textStyle="bold"></Button>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="200sp"
+        android:background="@drawable/radius_box">
+        <Button
+            android:id="@+id/btnmaps"
+            style="@style/DashboardButton"
+            android:layout_width="139dp"
+            android:layout_height="145dp"
+            android:drawableTop="@drawable/mapsnearby"
+            android:text="Nearby"
+            android:textAlignment="gravity"
+            android:textColor="#070000"
+            android:textSize="15dp"
+            android:textStyle="bold"></Button>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/radius_box">
+        <Button
+            android:id="@+id/btnmaps"
+            style="@style/DashboardButton"
+            android:layout_width="139dp"
+            android:layout_height="145dp"
+            android:drawableTop="@drawable/mapsworld"
+            android:text="Maps"
+            android:textAlignment="gravity"
+            android:textColor="#070000"
+            android:textSize="15dp"
+            android:textStyle="bold"></Button>
+    </RelativeLayout>
+
+</RelativeLayout>

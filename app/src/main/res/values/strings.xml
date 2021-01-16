@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Bengkel 2020</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="email">Email Address</string>
+    <string name="fullName">Service Name</string>
+    <string name="alamat">Alamat Lengkap</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="submit">SUBMIT</string>
+    <string name="back">BACK</string>
+    <string name="photo">Poto</string>
+
+    <string name="address">Address</string>
+</resources>
