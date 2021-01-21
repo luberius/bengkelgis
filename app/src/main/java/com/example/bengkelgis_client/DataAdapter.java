@@ -13,6 +13,16 @@ public class DataAdapter {
     public String longitude;
     public String latitude;
 
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public double distance;
+
     public String getId() {
 
         return Id;
@@ -119,5 +129,23 @@ public class DataAdapter {
     public void setLatitude(String latitude) {
 
         this.latitude = latitude;
+    }
+
+    @Override
+    public String toString() {
+        return "DataAdapter{" +
+                "Id='" + Id + '\'' +
+                ", ImageURL='" + ImageURL + '\'' +
+                ", ImageTitle='" + ImageTitle + '\'' +
+                ", Telp='" + Telp + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Alamat='" + Alamat + '\'' +
+                ", Hari='" + Hari + '\'' +
+                ", Jam='" + Jam + '\'' +
+                ", Jamt='" + Jamt + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", distance='" + distance + '\'' +
+                '}';
     }
 }

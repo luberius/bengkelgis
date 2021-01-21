@@ -117,7 +117,7 @@ public class DetailBengkel extends AppCompatActivity {
 
     public void JSON_HTTP_CALL(){
         final String Id               = getIntent().getStringExtra("id");
-        final String HTTP_JSON_URL    = "http://192.168.1.9/bengkel_gis_api/index.php/bengkel_api/getdetailbengkel/"+Id;
+        final String HTTP_JSON_URL    = "https://api.bengkelreza.develop.syahril.dev/bengkel_api/getdetailbengkel/"+Id;
         RequestOfJSonArray = new JsonArrayRequest(HTTP_JSON_URL,
 
                 new Response.Listener<JSONArray>() {

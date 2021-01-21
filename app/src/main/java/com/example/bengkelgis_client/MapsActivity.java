@@ -1,6 +1,7 @@
 package com.example.bengkelgis_client;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
@@ -42,6 +43,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,6 +66,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     double duration = 0;
     List<LatLng> coordinates;
     Polyline polylineDirection;
+    FloatingActionButton fab;
 
     // Views
 
@@ -77,14 +80,41 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        getLokasi();
 
         card = findViewById(R.id.card);
         textNama = findViewById(R.id.textNama);
         textAlamat = findViewById(R.id.textAlamat);
         textJarakWaktu = findViewById(R.id.textJarakWaktu);
+        fab = findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapsActivity.this, ListNearbyActivity.class);
+                intent.putExtra("lat", myLatLng.latitude);
+                intent.putExtra("lng", myLatLng.longitude);
+                startActivityForResult(intent, 99);
+            }
+        });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 99 && resultCode == RESULT_OK) {
+            double lat = Double.parseDouble(data.getStringExtra("lat"));
+            double lng = Double.parseDouble(data.getStringExtra("lng"));
+
+            String nama = data.getStringExtra("nama");
+            String alamat = data.getStringExtra("alamat");
+
+            textNama.setText(nama);
+            textAlamat.setText(alamat);
+
+            Toast.makeText(MapsActivity.this, "Memuat Jalur...", Toast.LENGTH_SHORT).show();
+            getDirection(myLatLng, new LatLng(lat, lng));
+        }
+    }
 
     /**
      * Manipulates the map once available.
@@ -95,6 +125,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -135,13 +166,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.addMarker(new MarkerOptions().position(currentLatLng).title("Lokasi saat ini"));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15.5f));
                     Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
+                    getLokasi();
                 }
             }
         });
     }
 
     private void getLokasi() {
-        String url = "https://api.bengkelreza.develop.syahril.dev/";
+        String url = "https://api.bengkelreza.develop.syahril.dev/?lat=" + myLatLng.latitude + "&lng=" + myLatLng.longitude;
         JsonArrayRequest request = new JsonArrayRequest
                 (Request.Method.GET, url, new Response.Listener<JSONArray>() {
                     @Override

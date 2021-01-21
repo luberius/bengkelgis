@@ -32,7 +32,7 @@ public class ListBengkel extends AppCompatActivity {
     List<DataAdapter> ListOfdataAdapter;
 
     RecyclerView recyclerView;
-    String HTTP_JSON_URL    = "http://192.168.1.9/bengkel_gis_api/index.php/bengkel_api/";
+    String HTTP_JSON_URL    = "https://api.bengkelreza.develop.syahril.dev/bengkel_api/list";
     String Id_Json          = "id";
     String Image_Name_JSON  = "nama";
     String Image_URL_JSON   = "gambar";
